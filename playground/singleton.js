@@ -1,4 +1,4 @@
-var Singleton = function () {
+var Singleton = (function () {
         var instance;
         function create() {
             var randomNumber = Math.random();
@@ -6,7 +6,6 @@ var Singleton = function () {
                 randomNumber
             }
         }
-
         return {
             getInstance: function () {
                 if (!instance) {
@@ -15,15 +14,20 @@ var Singleton = function () {
                 return instance;
             }
         }
-    };
+    })();
 
-var single1 = Singleton();
-var single2 = Singleton();
 
-var s1 = single1.getInstance();
-var s2 = single1.getInstance();
+    var s1 = Singleton;
+    var s2 = Singleton;
+    console.log(s1.getInstance() === s2.getInstance());
 
-console.log(s1, s2);
+// var single1 = Singleton();
+// var single2 = Singleton();
 
-console.log(s1 == s2 ); 
+// var s1 = single1.getInstance();
+// var s2 = single1.getInstance();
+
+// console.log(s1, s2);
+
+// console.log(s1 == s2 ); 
 

@@ -123,6 +123,7 @@
 // console.log(closureFunc());        // 
 // console.log(closureFunc());        // 
 
+// Working of JQuery lib
 
 // var FOO = function(){
 //     var x = 4;
@@ -134,4 +135,5 @@
 // }
 
 // FOO().hello().hi()
+
 

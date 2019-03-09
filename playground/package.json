@@ -1,0 +1,21 @@
+{
+  "name": "playground",
+  "version": "1.0.0",
+  "private": false,
+  "description": "My Playground",
+  "main": "eventloop.js",
+  "scripts": {
+    "start": "node objects.js",
+    "dev": "node functions.js"
+  },
+  "keywords": [],
+  "author": "Sumit Khandelwal",
+  "license": "MIT",
+  "dependencies": {
+    "color": "^3.1.0",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.0"
+  }
+}

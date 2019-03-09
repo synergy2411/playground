@@ -16,6 +16,10 @@ app.get("/", (request, response) => {
     response.sendFile(__dirname + "/public/index.html");
 });
 
+app.get("/weather", (req, res)=>{
+    res.sendFile(__dirname + "/public/weather.html");
+});
+
 app.get("/login", (req, res) => {
     if (req.query) {
         console.log(req.query);
@@ -30,7 +34,6 @@ app.post("/login", (req, res) => {
     console.log("POST API");
     if (req.body) {
         console.log("Body : ", req.body);
-
         res.send({
             status: 200,
             message: "POST API"

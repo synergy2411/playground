@@ -12,7 +12,9 @@
   "author": "Sumit Khandelwal",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "color": "^3.1.0",
+    "express": "^4.16.4",
     "request": "^2.88.0"
   },
   "devDependencies": {

@@ -1,5 +1,6 @@
 const yargs = require("yargs");
 const notes = require("./notes");
+const chalk = require("chalk");
 
 yargs.command({
     command: 'add',
@@ -33,7 +34,7 @@ yargs.command({
         }
     },
     handler: function (argv) {
-        console.log("Title : ", argv.title);
+        notes.removeNote(argv.title);
     }
 })
 
@@ -48,7 +49,7 @@ yargs.command({
         }
     },
     handler: function (argv) {
-        console.log("Title : ", argv.title);
+        notes.readNote(argv.title);
     }
 })
 
@@ -56,7 +57,12 @@ yargs.command({
     command: 'list',
     description: "Listing all notes in app",
     handler: function (argv) {
-        console.log("Listing all Notes!");
+        console.log(chalk.green.bold.inverse("Listing all Notes!"));
+        notes.listNotes().forEach(note => {
+            console.log(chalk.red("---------------"));
+            console.log("Title : " + note.title);
+            console.log("Body : " + note.body);
+        })
     }
 })
 

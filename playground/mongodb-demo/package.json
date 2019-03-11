@@ -10,7 +10,9 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
+    "hbs": "^4.0.3",
     "mongodb": "^3.1.13"
   }
 }

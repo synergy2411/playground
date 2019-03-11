@@ -3,6 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const geocode = require("./utils/geocode");
 const forecast = require("./utils/forecast");
+const logger = require("./middlewares/logger");
 
 const app = express();
 
@@ -10,6 +11,7 @@ app.use(express.static(__dirname + "/public"));
 // app.use(express.json());
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(logger.log);
 
 app.get("/", (request, response) => {
     // response.send(200, "<h2>Hello from Express!</h2>");
@@ -42,24 +44,29 @@ app.get("/getweather", (req, res)=>{
     }
 })
 
-app.get("/login", (req, res) => {
-    if (req.query) {
-        console.log(req.query);
-        res.send({
-            status: 200,
-            message: "Hello " + req.query.username
-        })
-    }
+app.get("/login", logger.log, (req, res) => {
+    // if (req.query.username !== "") {
+    //     console.log(req.query);
+    //     res.send({
+    //         status: 200,
+    //         message: "Hello " + req.query.username
+    //     })
+    // }else{
+    //     res.send({error : "No user found"})
+    // }
 })
 
+
+
 app.post("/login", (req, res) => {
-    console.log("POST API");
-    if (req.body) {
-        console.log("Body : ", req.body);
+    if (req.body.username !== "") {
+        console.log(req.body);
         res.send({
             status: 200,
             message: "POST API"
         })
+    }else{
+        res.send({error : "No user found"})
     }
 })
 

@@ -16,6 +16,18 @@ let read = () => {
     return _db.collection("users");
 }
 
+let find = (key, cb)=>{
+    _db.collection("users").find(key).toArray((err, result)=>{
+        if(err) {
+            cb(err);
+            return ;
+        }
+        console.log("result :" ,  result);
+        cb(null, {found : true, result});
+        
+    })
+}
+
 let create = (doc) => {
     _db.collection("users").insert(doc, (error, result)=>{
         if(error){
@@ -40,4 +52,4 @@ let remove = (key) => {
 
 }
 
-module.exports = { connect, create, update, read, remove }
+module.exports = { connect, create, update, read, remove, find }

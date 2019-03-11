@@ -8,7 +8,6 @@ var publicDirectory = path.join(__dirname, "/public");
 var viewsPath = path.join(__dirname, "/templates/views");
 var partialsPath = path.join(__dirname, "/templates/partials");
 
-
 app.set("view engine", "hbs");
 app.set("views", viewsPath);
 hbs.registerPartials(partialsPath);

@@ -20,6 +20,7 @@ let find = (key, cb)=>{
     _db.collection("users").find(key).toArray((err, result)=>{
         if(err) {
             cb(err);
+            return ;
         }
         console.log("result :" ,  result);
         cb(null, {found : true, result});

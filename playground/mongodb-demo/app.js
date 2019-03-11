@@ -16,8 +16,9 @@ app.get("/", (req, res) => {
     res.sendFile(__dirname + "/public/index.html");
 })
 app.post("/login", async (req, res) => {
-    if (req.body.username && req.body.password) {
+    if (req.body.username !== "" && req.body.password !== "") {
         console.log(req.body)
+        debugger;
         mongo.find({
             username: req.body.username,
             password: req.body.password

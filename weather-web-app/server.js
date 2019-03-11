@@ -1,6 +1,8 @@
 // const app = require("express")();
 const express = require("express");
 const bodyParser = require("body-parser");
+const geocode = require("./utils/geocode");
+const forecast = require("./utils/forecast");
 
 const app = express();
 
@@ -19,6 +21,26 @@ app.get("/", (request, response) => {
 app.get("/weather", (req, res)=>{
     res.sendFile(__dirname + "/public/weather.html");
 });
+
+app.get("/getweather", (req, res)=>{
+    console.log("Address : " + req.query.address);
+    if(req.query){
+        
+        geocode.getLocation(req.query.address, (error, location)=>{
+            if(error){
+                console.log(error);
+            }else{
+                forecast.getForecast(location.latitude, location.longitude, (error, forecastData)=>{
+                    if(error){
+                        console.log(error)
+                    }else{
+                        res.send(forecastData );
+                    }
+                })
+            }
+        })
+    }
+})
 
 app.get("/login", (req, res) => {
     if (req.query) {

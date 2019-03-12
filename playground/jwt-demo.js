@@ -18,18 +18,16 @@ app.post("/api/login", (req, res)=>{
 })
 
 function authenticate(req, res, next){
-    // console.log(req.headers["Authorization"]);
+    // console.log(req.headers["authorization"]);
     let bearer = req.headers["authorization"];
     if(bearer != undefined){
         let bearerToken = bearer.split(" ");
         let token = bearerToken[1];
         req.token = token;
         next();
-    }
-    else{
+    }else{
         res.redirect("/api")
     }
-    
 }
 
 app.get("/api/protected", authenticate, (req, res)=>{

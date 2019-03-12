@@ -1,0 +1,41 @@
+Github Signin
+
+git init
+
+git add .
+
+git commit -m "initail commit"
+
+git remote add origin https://github.com/synergy2411/chat-app.git
+
+Download heroku CLI Tool
+
+> heroku -v
+
+> heroku login
+
+> heroku keys:add
+
+> heroku create <Project_Name>
+
+// commit all code to git
+
+// push all code to git
+
+> git remote		// checks the git servers
+
+> git push heroku master		// pushing to heroku
+
+
+
+
+
+
+
+
+
+
+
+
+
+

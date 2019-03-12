@@ -9,8 +9,6 @@
 </head>
 
 <body>
-
-
     <div class="container">
         <h1 class="text-center">Chat App</h1>
         <form class="well">
@@ -34,10 +32,10 @@
     <script>
         $(document).ready(()=>{
 
-            var socket = io.connect("http://localhost:3000");
+            var socket = io.connect("/");
 
             var chatterName = prompt("Name?");
-
+            debugger;
             socket.on("acknowledge", msg =>{
                 alert(`Server says : ${msg.data}` );
             });

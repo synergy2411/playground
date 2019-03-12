@@ -24,6 +24,9 @@ passport.deserializeUser(function (id, done) {
 passport.use(new LocalStrategy(function (username, password, done) {
     let user = { username, password };
     console.log("[STRATEGY]", user);
+
+    //Apply your logic here.
+
     return done(null, user);
 }));
 
